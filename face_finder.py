@@ -2,29 +2,23 @@ import face_recognition
 
 class FaceFinder:
     def __init__(self):
-        # Load the jpg files into numpy arrays
-        biden_image = face_recognition.load_image_file("E:/New Batch/Student Rec/face_rec_sever/src/biden.jpg")
-        obama_image = face_recognition.load_image_file("E:/New Batch/Student Rec/face_rec_sever/src/obama.jpg")
+        # # Load the jpg files into numpy arrays
+        # biden_image = face_recognition.load_image_file("E:/New Batch/Student Rec/face_rec_sever/src/biden.jpg")
+        # obama_image = face_recognition.load_image_file("E:/New Batch/Student Rec/face_rec_sever/src/obama.jpg")
 
-        # Get the face encodings for each face in each image file
-        # Since there could be more than one face in each image, it returns a list of encodings.
-        # But since I know each image only has one face, I only care about the first encoding in each image, so I grab index 0.
-        try:
-            biden_face_encoding = face_recognition.face_encodings(biden_image)[0]
-            obama_face_encoding = face_recognition.face_encodings(obama_image)[0]
-        except IndexError:
-            print("I wasn't able to locate any faces in at least one of the images. Check the image files. Aborting...")
-            quit()
+        # # Get the face encodings for each face in each image file
+        # # Since there could be more than one face in each image, it returns a list of encodings.
+        # # But since I know each image only has one face, I only care about the first encoding in each image, so I grab index 0.
+        # try:
+        #     biden_face_encoding = face_recognition.face_encodings(biden_image)[0]
+        #     obama_face_encoding = face_recognition.face_encodings(obama_image)[0]
+        # except IndexError:
+        #     print("I wasn't able to locate any faces in at least one of the images. Check the image files. Aborting...")
+        #     quit()
 
-        self.known_faces = [
-            biden_face_encoding,
-            obama_face_encoding
-        ]
+        self.known_faces = []
 
-        self.known_faces_name = [
-            "biden",
-            "obama"
-        ]
+        self.known_faces_name = []
 
     def recognise_face(self, image):
 
